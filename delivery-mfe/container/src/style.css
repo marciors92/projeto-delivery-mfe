@@ -1,0 +1,55 @@
+/* Variáveis para consistência visual */
+:root {
+    --primary-color: #e63946;
+    /* Vermelho Delivery */
+    --secondary-color: #f1faee;
+    --accent-color: #ffb703;
+    /* Amarelo Fome */
+    --text-dark: #1d3557;
+    --bg-card: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: #f8f9fa;
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #c1121f;
+    box-shadow: 0 2px 8px rgba(230, 57, 70, 0.4);
+}
+
+.badge {
+    background: var(--accent-color);
+    color: var(--text-dark);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}

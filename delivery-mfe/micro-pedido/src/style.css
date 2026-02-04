@@ -1,0 +1,41 @@
+:root {
+    --primary: #e63946;
+    --accent: #ffb703;
+    --bg: #f8f9fa;
+    --text: #1d3557;
+}
+
+.card {
+    font-family: 'sans-serif';
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    margin: 10px;
+    border: 1px solid #eee;
+}
+
+.btn-delivery {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.btn-delivery:hover {
+    background: #c1121f;
+    transform: scale(1.05);
+}
+
+.price-tag {
+    background: var(--accent);
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
