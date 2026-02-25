@@ -1,46 +1,48 @@
-# 🍕 MasterFood MFE - Micro Front-end Delivery Architecture
+# 🍕 MasterFood MFE - Delivery Inteligente com Micro Front-ends
 
-Este projeto simula um ecossistema de delivery real utilizando a arquitetura de **Micro Front-ends**. O objetivo foi construir uma aplicação modular onde diferentes times podem trabalhar no "Cardápio" e no "Carrinho de Compras" de forma 100% independente, utilizando o que há de mais moderno em orquestração de módulos.
+![Demonstração do Projeto](https://github.com/user-attachments/assets/6f115ead-78ad-44b9-b717-8724074d4fb1)
 
-## 🔗 Link do Repositório
-> **Confira o código fonte:** [https://github.com/marciors92/projeto-delivery-mfe](https://github.com/marciors92/projeto-delivery-mfe)
+## 💡 O que é o projeto?
+Imagine um grande shopping center onde cada loja é independente, mas todas compartilham o mesmo teto e corredores. No mundo do software, chamamos isso de **Micro Front-ends**.
 
----
-
-## 🛠️ Tecnologias Utilizadas
-* **React 18** (Biblioteca de UI)
-* **Webpack 5 & Module Federation** (Orquestração de Micro Front-ends)
-* **JavaScript (ES6+)**
-* **CSS3** (Variáveis Globais e Flexbox para Design Responsivo)
-* **Babel** (Transpilação de código)
+O **MasterFood** é uma plataforma de delivery onde o **Cardápio** e o **Carrinho de Compras** são "lojas" (aplicações) totalmente independentes. Elas podem ser criadas, atualizadas ou consertadas por times diferentes sem que uma derrube a outra.
 
 ---
 
-## 🏗️ Arquitetura do Sistema
-
-O **FlashEats** é composto por três aplicações independentes que se comunicam em tempo real:
-
-1.  **Container (Porta 3000):** O "Host" da aplicação. Gerencia a identidade visual principal e consome os componentes remotos.
-2.  **Micro-Cardápio (Porta 3001):** Um "Remote" responsável pela listagem de produtos e pela emissão de eventos de adição ao carrinho.
-3.  **Micro-Pedido (Porta 3002):** Outro "Remote" que escuta os eventos globais e gerencia o estado do carrinho de compras.
+## 🛠️ Stack tecnológica
+* **Core:** React 18 & JavaScript (ES6+)
+* **Orquestração:** Webpack 5 & Module Federation
+* **Comunicação:** Custom Events (Event Driven Architecture)
+* **Design:** CSS3 com Variáveis Globais (Design System Unificado)
 
 ---
 
-## 📈 Jornada de Desenvolvimento Profissional
+## 🏗️ Estrutura do ecossistema
 
-### 1. Configuração de Infraestrutura (Build)
-Iniciei estruturando o ambiente com **Webpack 5**, configurando os *loaders* de CSS e Babel para garantir que os micros pudessem exportar seus componentes de forma isolada via `remoteEntry.js`.
+A aplicação é composta por três micro-apps independentes orquestrados em tempo real:
 
-### 2. Comunicação Desacoplada
-Implementei a lógica de comunicação entre os micros utilizando **Custom Events** do navegador. Isso permite que o Cardápio e o Pedido interajam sem que um conheça a implementação interna do outro (baixo acoplamento).
-
-### 3. Sistema de Design Unificado
-Criei uma identidade visual coesa para o delivery (FlashEats) utilizando variáveis CSS compartilhadas, garantindo que botões, cores e tipografia sejam idênticos em todos os micros.
+1.  **Container (Porta 3000):** O **Host**. Gerencia a identidade visual e consome os módulos remotos.
+2.  **Micro-Cardápio (Porta 3001):** O **Remote A**. Responsável pela listagem e emissão de eventos de compra.
+3.  **Micro-Pedido (Porta 3002):** O **Remote B**. Escuta os eventos globais e gerencia o estado do carrinho.
 
 ---
 
-## 🚀 Como Executar o Projeto
+## 📈 Diferenciais técnicos
+* **Comunicação Desacoplada:** Interação entre micros via eventos nativos do browser, garantindo zero dependência direta entre módulos.
+* **Build Independente:** Configuração de `remoteEntry.js` via Webpack para exportação de componentes isolados.
+* **Design System:** Consistência visual garantida através de um sistema de cores e tipografia compartilhado via variáveis CSS.
 
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/marciors92/projeto-delivery-mfe.git](https://github.com/marciors92/projeto-delivery-mfe.git)
+---
+
+## 🚀 Como executá-lo localmente?
+
+```bash
+# 1. Clone o repositório
+git clone [https://github.com/marciors92/projeto-delivery-mfe.git](https://github.com/marciors92/projeto-delivery-mfe.git)
+
+# 2. Instale e inicie os Micros (em terminais separados)
+cd micro-cardapio && npm install && npm start  # Porta 3001
+cd micro-pedido && npm install && npm start    # Porta 3002
+
+# 3. Instale e inicie o Host (em um novo terminal)
+cd container && npm install && npm start        # Porta 3000
